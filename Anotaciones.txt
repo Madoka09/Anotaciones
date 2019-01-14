@@ -1,0 +1,21 @@
+Expo 1 - Android -
+Sistema basado en linux, por ser libre, ligero y multiplataforma
+Clases contract:
+permisos para distintas tipos de cosas en android
+
+Expo 2 - Swift / Object C -
+Swift:
+Creado por Apple, lenguaje multiparadigma, fuertemente tipado.
+Es generalmente mas seguro bajo iOS.
+Uso de bibliotecas dinamicas
+-SOLO APPLE-
+
+Object C:
+Basicamente C, con soporte para programacion orientado a objetos, es un lenguaje compilado.
+Es menos seguro por metodos heredados de C y C++
+Es un lenguaje complejo
+Usa bibliotecas estaticas.
+
+Expo 3 - IONIC -
+
+Expo 4 - - 
