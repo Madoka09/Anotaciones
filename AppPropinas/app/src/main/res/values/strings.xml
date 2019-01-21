@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AppPropinas</string>
+    <string name="hola_mundo">Hola Mundo!</string>
+    <string name="menu_configuracion">Configuracion</string>
+    <string name="cantidad_pagar">Cantidad a pagar</string>
+    <string name="calcular_propina">Cantidad de propina</string>
+    <string name="propina">Propina</string>
+    <string name="cantidad">Cantidad total</string>
+    <string name="titulo_actividad_configuracion">Configuracion</string>
+    <string name="guardar_configuracion">Guardar configuracion</string>
+    <string name="porcentaje">Porcentaje de propina</string>
+    <string name="simbolo">%</string>
+</resources>
