@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schema.android.com/tools"
+    tools:context=".MainActivity">
+<item android:id="@+id/configuracion"
+    android:orderInCategory="100"
+    android:title="Configuracion"
+    android:icon="@android:drawable/ic_menu_preferences"/>
+</menu>
