@@ -9,28 +9,37 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import android.support.v7.widget.ShareActionProvider;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
 
-public class MainActivity extends AppCompatActivity {
-
-    Button btnBuscar;
-    TextView txtFrase;
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ShareActionProvider vShareActionProvider;
     private static final String QUERY_URL="https://openlibrary.org/search.json?q=";
+
+    Button btnBuscar;
+    TextView txtFrase;
+    ListView lstLista;
+    AdaptadorJSON adaptador;
+    FrameLayout barraContenedor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar menu = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(menu);
+
+        adaptador = new AdaptadorJSON(this, getLayoutInflater());
+        lstLista = (ListView) findViewById(R.id.lista);
+        lstLista.setAdapter(adaptador);
+        lstLista.setOnItemClickListener(this);
     }
 
     private void queryBooks(String frase){
@@ -62,11 +76,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Error."+e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+        barraContenedor = (FrameLayout) findViewById(R.id.barraProgresoContenedor);
+        barraContenedor.setVisibility(View.VISIBLE);
         AsyncHttpClient cliente = new AsyncHttpClient();
         cliente.get(QUERY_URL + url, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response){
                 Toast.makeText(getApplicationContext(), "OK!", Toast.LENGTH_LONG).show();
+                adaptador.updateData(response.optJSONArray("docs"));
+                barraContenedor.setVisibility(View.GONE);
                 Log.d("Resultados", response.toString());
             }
             @Override
@@ -101,4 +119,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        JSONObject objeto = (JSONObject) adaptador.getItem(i);
+        String cubiertaID = objeto.optString("cover_i", "");
+
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        detailIntent.putExtra("cubiertaID", cubiertaID);
+        startActivity(detailIntent);
+    }
 }
