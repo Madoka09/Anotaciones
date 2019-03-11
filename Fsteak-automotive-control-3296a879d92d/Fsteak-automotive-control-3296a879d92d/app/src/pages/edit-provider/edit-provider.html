@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Proveedor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-list no-line>
+    <ion-item>
+      <ion-label floating>Nombre del Proveedor</ion-label>
+      <ion-input id="nuevoProveedor" type="text" name="nuevoProveedor" #nuevoProveedor [(ngModel)]="nombreProveedor"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <button ion-button round color="secondary" (click)="editar()" icon-start>
+    <ion-icon name="create"></ion-icon>
+    Guardar Cambios
+  </button>
+</ion-content>

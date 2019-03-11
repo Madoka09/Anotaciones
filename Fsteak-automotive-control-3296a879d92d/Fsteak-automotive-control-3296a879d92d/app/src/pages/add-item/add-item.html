@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Añadir Producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+<!--
+  los elementos de pasan del texbox al formato json con el uso de "ngModel",
+  usando el objeto "element"
+-->
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre del Articulo</ion-label>
+      <ion-input [(ngModel)]="element.nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Descripcion</ion-label>
+      <ion-input [(ngModel)]="element.descripcion"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input [(ngModel)]="element.codigo"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Numero de Entrada FIFO</ion-label>
+      <ion-input #nuevoFIFO [(ngModel)]="element.fifo"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <ion-item>
+      <ion-label>Proveedor: </ion-label>
+      <ion-select [(ngModel)]="element.proveedor" okText="Seleccionar" cancelText="Volver">
+        <ion-option *ngFor="let provider of providers">{{provider.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Rack</ion-label>
+      <ion-input [(ngModel)]="element.rack"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Pasillo</ion-label>
+      <ion-input [(ngModel)]="element.pasillo"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Nivel</ion-label>
+      <ion-input [(ngModel)]="element.nivel"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <br>
+  <button ion-button round color="secondary" (click)="add()" icon-start>
+    <ion-icon name="add"></ion-icon>
+    Añadir Producto
+  </button>
+  <br>
+  <br>
+</ion-content>

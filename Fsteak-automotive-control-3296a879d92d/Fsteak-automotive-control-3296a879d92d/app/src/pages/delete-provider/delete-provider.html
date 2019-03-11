@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Borrar Proveedor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <!--
+    Para cambiar el proveedor, es necesario dar un identificador al "ion-input", denotado por un "#"
+    el valor que este poseea se puede leer y cambiar usando el metodo "@ViewChild('variable') variable"
+    de IONIC
+  -->
+  <ion-list no-line>
+    <ion-item>
+      <ion-label floating>Nombre del Proveedor</ion-label>
+      <ion-input [disabled]="true" id="nuevoProveedor" type="text" name="nuevoProveedor" #nuevoProveedor [(ngModel)]="nombreProveedor"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <button ion-button round color="danger" (click)="confirmDelete()" icon-start>
+    <ion-icon name="trash"></ion-icon>
+    Borrar Registro
+  </button>
+</ion-content>

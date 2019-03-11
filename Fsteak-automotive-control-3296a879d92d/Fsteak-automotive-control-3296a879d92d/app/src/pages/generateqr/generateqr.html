@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Codigo QR</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="text-align: center">
+  <ion-item>
+    <ion-label floating>Nombre del Elemento</ion-label>
+    <ion-input id="nuevoNombre" type="text" disabled="true" name="nuevoNombre" #nuevoNombre [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <br>
+  <br>
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <div #qrcode>
+          <qrcode [qrdata]="stringQuery" [size]="256" [level]="'M'" margin-horizontal></qrcode>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+  <button ion-button round icon-start (click)="print()">
+      <ion-icon name="cube"></ion-icon>
+      Generar Documento
+    </button>
+  <button ion-button round color="secondary" icon-start (click)="downloadPDF()"  [disabled]="!pdfObj">
+    <ion-icon name="print"></ion-icon>
+    Imprimir
+  </button>
+</ion-content>

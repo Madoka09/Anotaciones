@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Salida de Producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-list style="text-align: center">
+    <ion-item>
+      <ion-icon name="archive" item-start></ion-icon>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input disabled="true" id=departureNombre type="text" name="departureNombre" #departureNombre [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="grid" item-start></ion-icon>
+      <ion-label floating>ID</ion-label>
+      <ion-input disabled="true" [(ngModel)]="id"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="code-working" item-start></ion-icon>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input disabled="true" id="departureCodigo" type="text" name="departureCodigo" [(ngModel)]="codigo"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="podium" item-start></ion-icon>
+      <ion-label floating>Cantidad</ion-label>
+      <ion-input disabled="true" id="departureCantidad" type="text" name="departureCantidad" #departureCantidad
+        [(ngModel)]="cantidad"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="stats" item-start></ion-icon>
+      <ion-label floating>Restante</ion-label>
+      <ion-input disabled="true" id="departureNew" type="text" name="departureNew" #departureNew [(ngModel)]="newDep"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="barcode" item-start></ion-icon>
+      <ion-label floating>Cantidad Salida</ion-label>
+      <ion-input id="departureQty" type="number" min="1"  name="departureQty" #departureQty [(ngModel)]="departure" (input)="doMath()"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <br>
+  <button ion-button round (click)="departureAction()" icon-start>
+    <ion-icon name="cube"></ion-icon>
+    Generar Salida
+  </button>
+  <button ion-button round color="secondary" (click)="downloadPDF()" icon-start [disabled]="!pdfObj">
+    <ion-icon name="print"></ion-icon>
+    Imprimir Salida
+  </button>
+  <br>
+  <br>
+</ion-content>

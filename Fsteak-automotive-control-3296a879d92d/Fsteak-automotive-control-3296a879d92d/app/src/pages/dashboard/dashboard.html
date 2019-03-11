@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Menú Principal</ion-title>
+    <ion-buttons end>
+      <!--
+        Mostrar Menu lateral
+      -->
+      <button ion-button menuToggle="rightMenu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page" style="text-align: center">
+
+  <!--
+    Vista del usuario del tipo "operator", esta vista y la de "admin", deben de tener el mismo aspecto
+  -->
+  <ion-card (tap)="inventory()">
+    <img src="/assets/imgs/inventory_ico.png">
+  </ion-card>
+
+  <ion-card (tap)="multipleDeparture()">
+    <img src="/assets/imgs/multiple_departure_ico.png">
+  </ion-card>
+  
+  <ion-card (tap)="generateReport()">
+    <img src="/assets/imgs/report_gen_ico.png">
+  </ion-card>
+
+  <ion-card (tap)="searchPhysical()">
+    <img src="/assets/imgs/search_inventory_ico.png">
+  </ion-card>
+
+</ion-content>

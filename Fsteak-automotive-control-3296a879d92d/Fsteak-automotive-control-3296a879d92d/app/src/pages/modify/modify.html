@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Modificar Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-list no-line>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input id="nuevoNombre" type="text" name="nuevoNombre" #nuevoNombre [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input id="nuevoCodigo" type="text" name="nuevoCodigo" #nuevoCodigo [(ngModel)]="codigo"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Descripcion</ion-label>
+      <ion-input id="nuevoDescripcion" type="text" name="nuevoDescripcion" #nuevoDescripcion [(ngModel)]="descripcion"></ion-input>
+    </ion-item>
+  </ion-list>
+  <br>
+  <button ion-button round color="secondary" (click)="editar()" icon-start>
+    <ion-icon name="create"></ion-icon>
+    Guardar Cambios
+  </button>
+  <br>
+  <br>
+  <br>
+</ion-content>

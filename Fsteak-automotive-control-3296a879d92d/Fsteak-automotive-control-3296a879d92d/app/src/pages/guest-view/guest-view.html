@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Elementos en el Inventario</ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle="rightMenu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="text-align: center">
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Desliza para recargar" refreshingSpinner="circles"
+      refreshingText="Recargando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <div *ngFor="let element of elements">
+      <div (press)="expandItem(element)" ion-item>
+        <ion-card>
+          <ion-card-content>
+            <h1>{{element.nombre}}</h1>
+            <h2 ion-text>Codigo: <i ion-text>{{element.codigo}}</i></h2>
+          </ion-card-content>
+        </ion-card>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="element.expanded">
+          <ion-card>
+            <ion-card-content>
+              <ion-list>
+                <ion-item>
+                  <p ion-text color="dark">Descripcion: <i ion-text>{{element.descripcion}}</i></p>
+                </ion-item>
+                <ion-item>
+                  <p ion-text color="dark">Cantidad: <i ion-text>{{element.cantidad}}</i></p>
+                </ion-item>
+                <ion-item>
+                  <p ion-text color="dark">FIFO: <i ion-text>{{element.fifo}}</i></p>
+                </ion-item>
+                <ion-item>
+                  <p ion-text color="dark">Proveedor: <i ion-text>{{element.proveedor}}</i></p>
+                </ion-item>
+                <ion-item>
+                  <p ion-text color="dark">Fecha de Recepcion: <i ion-text>{{element.fechaRecepcion}}</i></p>
+                </ion-item>
+                <ion-item>
+                  <p ion-text color="dark">Recibido por: <i ion-text>{{element.recibido}}</i></p>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </expandable>
+      </div>
+    </div>
+  </ion-list>
+  <br>
+  <button ion-button round icon-start (click)="gotoReport()">
+    <ion-icon name="clipboard"></ion-icon>
+    Generar un Reporte
+  </button>
+  <br>
+</ion-content>

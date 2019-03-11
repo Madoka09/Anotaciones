@@ -1,0 +1,61 @@
+.getting-started {
+  p {
+    margin: 20px 0;
+    line-height: 22px;
+    font-size: 16px;
+  }
+}
+
+.bar-button-menutoggle {
+  display: inline-flex;
+}
+
+.vertical-buttons>* {
+  display: flex !important;
+
+}
+
+.ios,
+.md {
+
+  page-home {
+
+    button {
+      align-items: baseline;
+    }
+
+  }
+
+}
+
+button[ion-fab] {
+  overflow: visible;
+  position: relative;
+
+  ion-label {
+    position: absolute;
+    top: -8px;
+    right: 40px;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  .fab {
+    contain: layout;
+  }
+}
+
+.fab {
+  contain: layout;
+}
+
+expandable {
+  ion-scroll {
+    white-space: nowrap;
+    height: 8vh;
+  }
+}

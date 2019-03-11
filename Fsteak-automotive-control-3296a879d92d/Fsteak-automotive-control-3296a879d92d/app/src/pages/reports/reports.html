@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Generar Reportes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="clipboard" item-start></ion-icon>
+        <ion-label>Reporte de Stock</ion-label>
+      </ion-item>
+      <button ion-button round icon-start (click)="callToLoaderPrint()">
+        <ion-icon name="cube"></ion-icon>
+        Generar Reporte
+      </button>
+      <button ion-button round icon-start color="secondary" (click)="generatePDF()" [disabled]="!pdfObj">
+        <ion-icon name="print"></ion-icon>
+        Imprimir Reporte
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

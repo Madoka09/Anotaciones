@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Borrar Usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="text-align: center">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre Completo</ion-label>
+      <ion-input disabled="true" id="nuevoFullname" type="text" name="nuevoFullname" #nuevoFullname [(ngModel)]="fullname"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Nombre de Usuario</ion-label>
+      <ion-input disabled="true" id="nuevoUsername" type="text" name="nuevoUsername" #nuevoUsername [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button round color="danger" (click)="deleteUser()" icon-start>
+      <ion-icon name="trash"></ion-icon>
+      Borrar Usuario
+    </button>
+    <br>
+    <br>
+  </ion-list>
+</ion-content>

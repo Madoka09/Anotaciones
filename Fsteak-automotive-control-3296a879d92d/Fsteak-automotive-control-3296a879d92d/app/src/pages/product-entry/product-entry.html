@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Entrada de Producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-card>
+    <ion-card-content>
+      <h1 ion-text><i ion-text>{{nombre}}</i></h1>
+      <h2 ion-text>Codigo: <i ion-text >{{codigo}}</i></h2>
+      <h3 ion-text>Cantidad Actual: <i ion-text>{{oldCantidad}}</i></h3>
+      <h3 ion-text>FIFO Actual: <i ion-text>{{fifo}}</i></h3>
+      <h3 ion-text>ID: <i ion-text>{{id}}</i></h3>
+    </ion-card-content>
+  </ion-card>
+  <ion-item>
+    <ion-label stacked>Cantidad a Ingresar</ion-label>
+    <ion-input #nuevaCantidad></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Numero de Entrada de FIFO</ion-label>
+    <ion-input #nuevoFIFO></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label stacked>Proveedor</ion-label>
+    <ion-select #proveedor>
+      <ion-option *ngFor="let provider of providerData">{{provider.nombre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <button ion-button round color="secodary" (click)="generateEntry()" icon-start>
+    <ion-icon name="archive"></ion-icon>
+    Generar Entrada
+  </button>
+</ion-content>

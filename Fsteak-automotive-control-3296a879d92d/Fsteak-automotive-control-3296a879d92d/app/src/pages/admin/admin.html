@@ -1,0 +1,79 @@
+<ion-header>
+  <!--
+    Asignacion de nombres para la lista de paginas que se muestra en la parte superior
+    los valores pueden cambiarse usando la propiedad ngModel del elemento "ion-segment"
+    por defecto se muestra la pagina de "usuarios"
+  -->
+  <ion-toolbar>
+    <ion-navbar>
+      <ion-title>Administrador</ion-title>
+      <ion-buttons end>
+        <button ion-button menuToggle="rightMenu">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+    <ion-segment [(ngModel)]="test123">
+      <ion-segment-button value="users">
+        <ion-icon name="contacts" icon-start></ion-icon>
+        Administrar Usuarios
+      </ion-segment-button>
+      <ion-segment-button value="inventory">
+        <ion-icon name="cube" icon-start></ion-icon>
+        Inventario
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding style="text-align: center" class="card-background-page">
+  <!--
+    La variable para el cambio es llamada "test123", puedes cambiar el nombre a conveniencia
+    el cambio se realiza con swtich segun el valor que se asigne pulsando uno de los botones 
+    de la barra de navegacion,
+  -->
+  <div [ngSwitch]="test123">
+    <!--
+      Vista de gestión de Usuarios
+    -->
+    <ion-list *ngSwitchCase="'users'" ngSelected="selected">
+      <ion-card (tap)="createUser()">
+        <img src="/assets/imgs/create_usr_ico.png">
+      </ion-card>
+
+      <ion-card (tap)="deleteUser()">
+        <img src="/assets/imgs/delete_usr_ico.png">
+      </ion-card>
+    </ion-list>
+    
+    <!--
+      Vista de Gestión de Inventario, debe permanecer identica a la del usuario del tipo
+      "operator", agregar la targeta con el evento "tap" en caso de añadir una vista nueva.
+    -->
+    <ion-list *ngSwitchCase="'inventory'" ngSelected="selected">
+      <ion-card (tap)="inventory()">
+        <img src="/assets/imgs/inventory_ico.png">
+      </ion-card>
+
+      <ion-card (tap)="multipleDeparture()">
+        <img src="/assets/imgs/multiple_departure_ico.png">
+      </ion-card>
+
+      <ion-card (tap)="providerManagement()">
+        <img src="/assets/imgs/add_provider_ico.png">
+      </ion-card>
+
+      <ion-card (tap)="generateReport()">
+        <img src="/assets/imgs/report_gen_ico.png">
+      </ion-card>
+
+      <ion-card (tap)="searchPhysical()">
+        <img src="/assets/imgs/search_inventory_ico.png">
+      </ion-card>
+
+    </ion-list>
+
+  </div>
+</ion-content>

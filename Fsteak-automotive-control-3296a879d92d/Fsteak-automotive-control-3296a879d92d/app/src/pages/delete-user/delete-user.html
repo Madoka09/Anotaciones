@@ -1,0 +1,48 @@
+<!--
+  La pagina se llama "delete-user", sin embargo, es la de gestión de usuarios
+  (puedes burlarte con alguien si quieres)
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Gestion de Usuarios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <!--
+      Obtener elementos en formato JSON e iterarlo, para obtener una lista de todos 
+      los usuarios
+    -->
+    <div *ngFor="let element of elements">
+      <div (press)="expandItem(element)" ion-item>
+        <ion-card>
+          <ion-card-content>
+            <h2 ion-text>{{element.name}}</h2>
+            <p ion-text>Nombre de Usuario: <i ion-text>{{element.email}}</i></p>
+            <p ion-text>Cargo: <i ion-text>{{element.role}}</i></p>
+          </ion-card-content>
+        </ion-card>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="element.expanded">
+          <ion-card>
+            <ion-card-content>
+              <p>Acciones</p>
+              <button ion-button icon-start round color="danger" (click)="deleteAction(element)">
+                <ion-icon name="trash"></ion-icon>
+                Borrar
+              </button>
+              <br>
+              <button ion-button icon-start round (click)="editAction(element)">
+                <ion-icon name="create"></ion-icon>
+                Editar
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </expandable>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

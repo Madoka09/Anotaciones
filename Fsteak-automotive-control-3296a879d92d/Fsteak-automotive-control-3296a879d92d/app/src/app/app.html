@@ -1,0 +1,21 @@
+<!--
+  Vista de menú lateral
+-->
+<ion-menu id="rightMenu" [content]="content" side="right" type="reveal">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-button outline full color="danger" icon-start (click)="log_out()">
+        <ion-icon name="log-out"></ion-icon>
+        Cerrar Sesión
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

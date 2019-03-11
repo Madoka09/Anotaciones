@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-list>
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon>
+      <ion-label floating>Nombre Completo</ion-label>
+      <ion-input id="nuevoFullname" type="text" name="nuevoFullname" #nuevoFullname [(ngModel)]="fullname"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="mail" item-start></ion-icon>
+      <ion-label floating>Email</ion-label>
+      <ion-input id="nuevoUsername" type="text" name="nuevoUsername" #nuevoUsername [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Cargo: </ion-label>
+      <ion-icon name="person-add" item-start></ion-icon>
+      <ion-select okText="Seleccionar" cancelText="Volver" id="nuevoCharge" type="text" name="nuevoCharge" #nuevoCharge [(ngModel)]="charge">
+        <ion-option value="operador">Operador</ion-option>
+        <ion-option value="admin">Administrador de Usuarios</ion-option>
+        <ion-option value="invitado">Invitado</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <br>
+  <button ion-button round color="secondary" (click)="modifyUser()" icon-start>
+    <ion-icon name="create"></ion-icon>
+    Guardar Cambios
+  </button>
+</ion-content>

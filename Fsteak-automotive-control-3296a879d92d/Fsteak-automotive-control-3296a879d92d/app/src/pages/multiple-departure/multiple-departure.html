@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Generar Salida Multiple</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card *ngFor="let element of createdJson">
+      <ion-card-content *ngIf="controlvar == true">
+        <h1 ion-text><i ion-text>{{element.name}}</i></h1>
+        <h2>En stock: <i ion-text>{{element.qty}}</i></h2>
+        <ion-item>
+          <ion-label>Cantidad a salida: </ion-label>
+          <ion-input [(ngModel)]="departureVal" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button round (click)="sendItem(element)" icon-start>
+          <ion-icon name="checkmark-circle"></ion-icon>
+          Enviar a Reporte
+        </button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <h2>Acciones Generales</h2>
+        <button ion-button round (click)="recieveDepart()" [disabled]="controlvar == true" icon-start>
+          <ion-icon name="cloud-download"></ion-icon>
+          Recibir Elementos
+        </button>
+        <br>
+        <button ion-button round color="danger" (click)="clearArr()" [disabled]="controlvar == false" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Borrar Elementos
+        </button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <h2>Acciones de Reporte</h2>
+        <button ion-button round (click)="generatePDF()" color="secondary" icon-start>
+          <ion-icon name="cube"></ion-icon>
+          Generar Reporte
+        </button>
+        <br>
+        <button ion-button round (click)="printPDF()" icon-start [disabled]="!pdfObj">
+          <ion-icon name="print"></ion-icon>
+          Imprimir Reporte
+        </button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Borrar Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <!--
+    Vista de borrado de ITEMS, se toman los valores de los "ion-input" con el tag "#" para poder usar los
+    valores con los "@ViewChild"
+  -->
+  <ion-list no-line>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input disabled="true" id="nuevoNombre" type="text" name="nuevoNombre" #nuevoNombre [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input disabled="true" id="nuevoCodigo" type="text" name="nuevoCodigo" #nuevoCodigo [(ngModel)]="codigo"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+    <button ion-button round color="danger" (click)="delete()" icon-start>
+      <ion-icon name="trash"></ion-icon>
+      Borrar Elemento
+    </button>
+    <br>
+    <br>
+    <br>
+</ion-content>

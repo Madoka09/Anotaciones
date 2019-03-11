@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Proveedores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <ion-fab top right edge>
+    <button ion-fab>
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab color="secondary" (click)="addProvider()">
+        <ion-icon name="add"></ion-icon>
+        <ion-label>Añadir</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-list>
+    <div *ngFor="let element of elements">
+      <div (press)="expandItem(element)" ion-item>
+        <ion-card>
+          <ion-card-content>
+            <h1 ion-text> <i ion-text>{{element.nombre}}</i></h1>
+          </ion-card-content>
+        </ion-card>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="element.expanded">
+          <ion-card>
+            <ion-card-content>
+              <p>Acciones</p>
+              <button ion-button icon-start round color="danger" (click)="deleteAction(element)">
+                <ion-icon name="trash"></ion-icon>
+                Borrar
+              </button>
+              <button ion-button icon-start round (click)="editAction(element)">
+                <ion-icon name="create"></ion-icon>
+                Editar
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </expandable>
+      </div>
+    </div>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registro de Usuarios</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="text-align: center">
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label>Tipo de Usuario</ion-label>
+      <ion-icon name="person-add" item-start></ion-icon>
+      <ion-select name="charge" #charge okText="Seleccionar" cancelText="Volver">
+        <ion-option value="operador">Operador</ion-option>
+        <ion-option value="admin">Administrador de Usuarios</ion-option>
+        <ion-option value="invitado">Invitado</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon>
+      <ion-label floating>Nombre Completo</ion-label>
+      <ion-input round type="text" name="fullname" #fullname></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="person" item-start></ion-icon>
+      <ion-label floating>Email</ion-label>
+      <ion-input round type="email" name="username" #username></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="key" item-start></ion-icon>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input round type="password" name="password" #password></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-icon name="key" item-start></ion-icon>
+      <ion-label floating>Confirmar Contraseña</ion-label>
+      <ion-input round type="password" name="passwordVerify" #passwordVerify></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <button ion-button round color="secondary" (click)="register()" icon-start>
+    <ion-icon name="add"></ion-icon>
+    Crear Usuario
+  </button>
+  <br>
+</ion-content>

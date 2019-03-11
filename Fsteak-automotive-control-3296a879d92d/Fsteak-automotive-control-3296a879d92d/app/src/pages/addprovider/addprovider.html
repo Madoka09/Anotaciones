@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Añadir Proveedor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <!--
+    Añadir Proveedor, usando el metodo ngModel
+  -->
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre del Proveedor</ion-label>
+      <ion-input [(ngModel)]="element.proveedor"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button round icon-start color="secondary" (click)="addProvider()">
+      <ion-icon name="add"></ion-icon>
+      Añadir
+    </button>
+  </ion-list>
+</ion-content>

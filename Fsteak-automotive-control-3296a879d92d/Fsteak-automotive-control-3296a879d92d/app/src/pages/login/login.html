@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Iniciar Sesion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="text-align: center">
+  <img src="/assets/imgs/auto_logo_local.jpg" style="width: 45vh; justify-content: center">
+  <ion-card>
+    <ion-card-content>
+      <br>
+      <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+        <ion-label floating>Email</ion-label>
+        <ion-input round type="email" name="username" #username></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-icon name="key" item-start></ion-icon>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input round type="password" name="password" #password></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button round icon-start (click)="login()">
+        <ion-icon name="log-in"></ion-icon>
+        Iniciar Sesion
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
