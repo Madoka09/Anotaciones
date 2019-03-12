@@ -12,11 +12,17 @@ export class Tab1Page {
   @ViewChild("total") total;
   @ViewChild("resultado") resultado;
   @ViewChild("propina") propina;
-  constructor(){}
+  constructor() { }
 
-  calculate(){
+  calculate() {
     this.resultados = this.total.value * this.propina.value;
     this.resultado.value = this.resultados;
+
+    if (this.propina.value == false) {
+      this.propina.value = 0.15;
+      this.resultados = this.total.value * this.propina.value;
+      this.resultado.value = this.resultados;
+    }
   }
 
 }
