@@ -1,0 +1,7 @@
+{
+  "name": "YGO",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

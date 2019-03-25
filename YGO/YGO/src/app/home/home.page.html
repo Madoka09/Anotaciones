@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Busqueda Simple
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Nombre de la Carta</ion-label>
+    <ion-input #carta></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="buscar()">¡Buscar!</ion-button>
+  <br>
+  <ion-card *ngIf="this.searched == true">
+    <ion-img src="{{this.cardetails.image_url}}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{this.cardetails.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2><i>{{this.cardetails.desc}}</i></h2>
+      <br>
+      <h3><i>ATK: </i>{{this.cardetails.atk}}</h3>
+      <h3><i>DEF: </i>{{this.cardetails.def}}</h3>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
