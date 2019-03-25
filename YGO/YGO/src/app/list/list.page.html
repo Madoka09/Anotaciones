@@ -21,7 +21,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let item of cardetails">
+        <ion-item *ngFor="let item of cardetails" (tap)="fullView(item)">
           <i>{{item.name}}</i>
           <div class="item-note" slot="end">
             <sub>{{item.type}}</sub>
