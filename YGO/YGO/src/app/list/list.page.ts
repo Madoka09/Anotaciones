@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PasserService } from '../passer.service';
+
 
 @Component({
   selector: 'app-list',
@@ -14,7 +16,7 @@ export class ListPage {
   searched: boolean;
   card: any;
   @ViewChild('carta') carta;
-  constructor(private httpC: HttpClient, public router: Router) {}
+  constructor(private httpC: HttpClient, public router: Router, public navPasser: PasserService) {}
 
   ionViewDidLoad() {
     this.searched = false;
@@ -33,8 +35,8 @@ export class ListPage {
   }
 
   fullView(item) {
-    this.card = item.name;
-    this.router.navigate(['/home', item])
+    this.navPasser.nameCard(item.name);
+    this.router.navigateByUrl('/home')
     console.log(this.card);
   }
 }

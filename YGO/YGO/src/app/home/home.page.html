@@ -24,8 +24,10 @@
     <ion-card-content>
       <h2><i>{{this.cardetails.desc}}</i></h2>
       <br>
-      <h3><i>ATK: </i>{{this.cardetails.atk}}</h3>
-      <h3 *ngIf="this.cardetails.linkval == string"><i>DEF: </i>{{this.cardetails.def}}</h3>
+      <div *ngIf="this.cardetails.atk != null">
+        <h3><i>ATK: </i>{{this.cardetails.atk}}</h3>
+        <h3 *ngIf="this.cardetails.linkval == string"><i>DEF: </i>{{this.cardetails.def}}</h3>
+      </div>
       <h3 *ngIf="this.cardetails.type == 'Link Monster'"><i>Link: </i>{{this.cardetails.linkval}}</h3>
       <h3 *ngIf="this.cardetails.type == 'Link Monster'"><i>Markers: </i>{{this.cardetails.linkmarkers}}</h3>
       <br>
