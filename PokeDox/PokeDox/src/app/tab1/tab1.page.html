@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pokédex
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-chip>
+    <ion-label>Actualmente existen Pokémon</ion-label>
+  </ion-chip>
+  <br>
+  <ion-content scrollX="true" scrollY="false">
+    <div>
+      <ion-grid *ngIf="this.pokeSprite">
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-img src="{{this.pokeSprite}}" height="100vw" width="100vw"></ion-img>
+              <ion-card-header>
+                <ion-card-title>{{this.pokeName}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                TEST 1
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{this.pokeName}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                TEST 2
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{this.pokeName}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                TEST 3
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
+  <ion-button (click)="getPoke()">Get Data!</ion-button>
+</ion-content>

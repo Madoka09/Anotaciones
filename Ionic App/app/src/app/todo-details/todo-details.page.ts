@@ -16,18 +16,19 @@ export class TodoDetailsPage implements OnInit {
     priority: 2
   };
 
-  todoId = null;;
+  todoId = null;
 
-  constructor(private route: ActivatedRoute, private nav: NavController, private todoService: TodoService, private loadingController: LoadingController) { }
+  constructor (private route: ActivatedRoute, private nav: NavController, private todoService: TodoService,
+    private loadingController: LoadingController) { }
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
-    if(this.todoId){
+    if (this.todoId) {
       this.loadTodo();
     }
   }
 
-  async loadTodo(){
+  async loadTodo() {
     const loading = await this.loadingController.create({
       message: 'loading...'
     });
@@ -39,13 +40,13 @@ export class TodoDetailsPage implements OnInit {
     });
   }
 
-  async saveTodo(){
+  async saveTodo() {
     const loading = await this.loadingController.create({
       message: 'Guardando...'
     });
     await loading.present();
 
-    if(this.todoId){
+    if (this.todoId) {
       this.todoService.updateTodo(this.todo, this.todoId).then(() => {
         loading.dismiss();
         this.nav.back();
@@ -53,8 +54,8 @@ export class TodoDetailsPage implements OnInit {
     } else {
       this.todoService.addTodo(this.todo).then(() => {
         loading.dismiss();
-        this.nav.back()
-      })
+        this.nav.back();
+      });
     }
   }
 

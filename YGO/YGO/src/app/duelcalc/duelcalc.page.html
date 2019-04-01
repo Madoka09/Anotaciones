@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Calculadora
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="text-align: center">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Jugador 1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">LP</ion-label>
+        <ion-input disabled="true" value="8000" #player1></ion-input>
+      </ion-item>
+      <ion-button size="small" shape="round" (click)="operatorPlus()" *ngIf="this.operatorController === false"
+        color="danger">-</ion-button>
+      <ion-button size="small" shape="round" (click)="operatorMinus()" *ngIf="this.operatorController === true"
+        color="success">+</ion-button>
+      <ion-button size="small" shape="round" (click)="half()">Half</ion-button>
+      <ion-button size="small" shape="round" (click)="otk()">OTK</ion-button>
+      <ion-button size="small" shape="round" (click)="mil()">1000</ion-button>
+      <ion-button size="small" shape="round" (click)="quin()">500</ion-button>
+      <ion-button size="small" shape="round" (click)="cien()">100</ion-button>
+      <ion-button size="small" shape="round" (click)="reset()">Reset</ion-button>
+      <ion-item>
+        <ion-label position="stacked">Manual</ion-label>
+        <ion-input type="number" #manual1></ion-input>
+      </ion-item>
+      <ion-button size="small" shape="round" (click)="addP1()" color="success">Sumar</ion-button>
+      <ion-button size="small" shape="round" (click)="minP1()" color="danger">Restar</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Jugador 2</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">LP</ion-label>
+        <ion-input disabled="true" value="8000" #player2></ion-input>
+      </ion-item>
+      <ion-button size="small" shape="round" (click)="operatorPlus2()" *ngIf="this.operatorController2 === false"
+        color="danger">-</ion-button>
+      <ion-button size="small" shape="round" (click)="operatorMinus2()" *ngIf="this.operatorController2 === true"
+        color="success">+</ion-button>
+      <ion-button size="small" shape="round" (click)="half2()">Half</ion-button>
+      <ion-button size="small" shape="round" (click)="otk2()">OTK</ion-button>
+      <ion-button size="small" shape="round" (click)="mil2()">1000</ion-button>
+      <ion-button size="small" shape="round" (click)="quin2()">500</ion-button>
+      <ion-button size="small" shape="round" (click)="cien2()">100</ion-button>
+      <ion-button size="small" shape="round" (click)="reset2()">Reset</ion-button>
+      <ion-item>
+        <ion-label position="stacked">Manual</ion-label>
+        <ion-input type="number" #manual2></ion-input>
+      </ion-item>
+      <ion-button size="small" shape="round" (click)="addP2()" color="success">Sumar</ion-button>
+      <ion-button size="small" shape="round" (click)="minP2()" color="danger">Restar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

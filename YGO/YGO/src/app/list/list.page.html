@@ -4,30 +4,29 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Busqueda por Arquetipo
+      Buscar Arquetipos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding scrollY="true">
   <ion-item>
     <ion-label position="stacked">Nombre del Arquetipo</ion-label>
     <ion-input #carta></ion-input>
   </ion-item>
-  <ion-button expand="block" (click)="buscar()">¡Buscar!</ion-button>
-  <ion-card *ngIf="this.searched == true">
-    <ion-card-header>
-      <ion-card-title><i>Miembros del Arquetipo</i></ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
+  <ion-button expand="block" (click)="buscar()" shape="round">Buscar</ion-button>
+  <div *ngIf="this.searched == true">
+    <h3><i>Resultados</i></h3>
+    <div>
       <ion-list>
-        <ion-item *ngFor="let item of cardetails" (tap)="fullView(item)">
+        <ion-item *ngFor="let item of cardetails" (click)="fullView(item)">
           <i>{{item.name}}</i>
           <div class="item-note" slot="end">
             <sub>{{item.type}}</sub>
           </div>
         </ion-item>
       </ion-list>
-    </ion-card-content>
-  </ion-card>
+    </div>
+  </div>
+  <p> </p>
 </ion-content>

@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'duelcalc', loadChildren: './duelcalc/duelcalc.module#DuelcalcPageModule' }
 ];
 
 @NgModule({

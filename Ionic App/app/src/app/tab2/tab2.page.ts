@@ -9,15 +9,15 @@ import { Todo, TodoService } from '../services/todo.service';
 export class Tab2Page {
   todos: Todo[];
 
-  constructor(private TodoService: TodoService){}
+  constructor(private todoService: TodoService){}
 
-  ngOnInit(){
-    this.TodoService.getTodos().subscribe(res => {
-      this.todos = res
-    })
+  ngOnInit() {
+    this.todoService.getTodos().subscribe(res => {
+      this.todos = res;
+    });
   }
 
-  remove(item){
-    this.TodoService.removeTodo(item.id);
+  remove(item) {
+    this.todoService.removeTodo(item.id);
   }
 }

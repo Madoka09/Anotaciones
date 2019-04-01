@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Busqueda Simple
+      Buscar Carta
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,15 +14,21 @@
     <ion-label position="stacked">Nombre de la Carta</ion-label>
     <ion-input #carta></ion-input>
   </ion-item>
-  <ion-button expand="block" (click)="buscar()">¡Buscar!</ion-button>
+  <ion-button expand="block" (click)="buscar()" shape="round">Buscar</ion-button>
+  <ion-item>
+      <ion-label>Habilitar Imágenes</ion-label>
+      <ion-toggle checked [(ngModel)]="toggle" (ionChange)="enableImg()"></ion-toggle>
+    </ion-item>
   <br>
   <ion-card *ngIf="this.searched == true">
-    <ion-img src="{{this.cardetails.image_url}}"></ion-img>
+    <ion-img *ngIf="this.imgControl === true" src="{{this.cardetails.image_url}}"></ion-img>
     <ion-card-header>
       <ion-card-title>{{this.cardetails.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <h2><i>{{this.cardetails.desc}}</i></h2>
+      <br>
+      <h2><i>{{this.cardetails.type}}</i></h2>
       <br>
       <div *ngIf="this.cardetails.atk != null">
         <h3><i>ATK: </i>{{this.cardetails.atk}}</h3>
@@ -33,6 +39,14 @@
       <br>
       <h3 *ngIf="this.cardetails.ban_tcg != null ">TGC: <i>{{this.cardetails.ban_tcg}}</i></h3>
       <h3 *ngIf="this.cardetails.ban_tcg != null ">OCG: <i>{{this.cardetails.ban_ocg}}</i></h3>
+      <br>
+      <div *ngIf="this.cardetails.atk != null">
+        <h3>Información Adicional</h3>
+        <h3><i>Atributo: {{this.cardetails.attribute}}</i></h3>
+        <h3><i>Tipo: {{this.cardetails.race}}</i></h3>
+        <h3 *ngIf="this.cardetails.linkval == string"><i>Nivel: {{this.cardetails.level}}</i></h3>
+        <h3 *ngIf="this.cardetails.scale != null"><i>Escala: {{this.cardetails.scale}}</i></h3>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

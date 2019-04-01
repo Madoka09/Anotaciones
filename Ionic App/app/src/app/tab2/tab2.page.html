@@ -18,7 +18,7 @@
       </div>
     </ng-container>
 
-    <ion-item *ngFor="let item of todos">
+    <ion-item-sliding *ngFor="let item of todos">
       <ion-item lines="inset" button [routerLink]="['/details', item.id]">
         <ion-label>
           {{ item.task }}
@@ -28,12 +28,12 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option (click)="remove(item)" color="secondary">
-          Check
-          <ion-icon name="checkmark" slot="end"></ion-icon>
+        <ion-item-option (click)="remove(item)" color="success">
+          Remover
+          <ion-icon name="checkmark-circle" slot="end"></ion-icon>
         </ion-item-option>
       </ion-item-options>
-    </ion-item>
+    </ion-item-sliding>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
