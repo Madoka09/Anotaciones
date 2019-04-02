@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles</ion-title>
+    <ion-button color="dark" fill="clear" slot="start" (click)="dismiss()"><ion-icon name="arrow-round-back"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-img src="http://covers.openlibrary.org/b/id/{{this.value.cover_i}}-M.jpg">
+  </ion-img>
+  <ion-item class="text-center">
+    <h2>{{this.value.title_suggest}}</h2>
+  </ion-item>
+  <ion-item class="text-center">
+    <h3>{{this.value.author_name}}</h3>
+  </ion-item>
+  <ion-item class="text-center">
+    <p>{{this.value.first_publish_year}}</p>
+  </ion-item>
+</ion-content>

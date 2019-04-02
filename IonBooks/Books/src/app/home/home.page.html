@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Biblioteca
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">Nombre del Libro</ion-label>
+    <ion-input type="text" #search></ion-input>
+    <ion-button slot="end" shape="round" (click)="getData()">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item-divider>
+    <ion-label>
+      Resultados
+    </ion-label>
+  </ion-item-divider>
+  <ion-list *ngFor="let item of data.docs| slice:0:15; let i=index">
+    <ion-item class="ion-text-wrap" (click)="viewDetails(item)">
+      <ion-img slot="start" src="http://covers.openlibrary.org/b/id/{{item.cover_i}}-S.jpg"></ion-img>
+      <ion-label>
+        <h3>{{item.title_suggest}}</h3>
+        <h2>{{item.author_name}}</h2>
+        <p>{{item.first_publish_year}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
