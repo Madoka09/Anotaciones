@@ -9,12 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DetailsPage } from './details/details.page';
+import { SharedModule } from './shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent, DetailsPage],
-  entryComponents: [DetailsPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, SharedModule, CommonModule],
   providers: [
     StatusBar,
     SplashScreen,
