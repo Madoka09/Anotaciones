@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Configuración
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding style="text-align: center">
+  <ion-item>
+    <ion-label position="stacked">Valor de la Propina</ion-label>
+    <ion-input type="number" #configV></ion-input>
+  </ion-item>
+  <br>
+  <ion-button shape="round" (click)="sendConf()">Guardar Propina</ion-button>
+</ion-content>
